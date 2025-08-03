@@ -2,14 +2,33 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // Crear productos de diferentes tipos
+        Producto[] inventario = new Producto[3];
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        inventario[0] = new Electronico("Smartphone", 899.99, 50, "ELEC-001",
+                "Samsung", "Galaxy S23", 24);
+        inventario[1] = new Alimento("Leche Entera", 2.49, 200, "ALIM-001",
+                "2023-12-31", "LOTE-4567");
+        inventario[2] = new Ropa("Camiseta", 19.99, 150, "ROPA-001",
+                "M", "Azul", "Algodón");
+
+        // Demostrar polimorfismo
+        System.out.println("=== Mostrando detalles de todos los productos ===");
+        for (Producto producto : inventario) {
+            producto.mostrarDetalles();  // Llamada polimórfica
+            System.out.println("---------------------");
+        }
+
+        System.out.println("\n=== Generando reportes ===");
+        for (Producto producto : inventario) {
+            producto.generarReporte();  // Llamada polimórfica
+            System.out.println("---------------------");
+        }
+
+        System.out.println("\n=== Actualizando existencias ===");
+        for (Producto producto : inventario) {
+            producto.actualizarExistencia(10);  // Llamada polimórfica
+            System.out.println("---------------------");
         }
     }
 }
